@@ -25,7 +25,7 @@ type Movie struct {
 	Year        int          `json:"year"`
 	ReleaseDate string       `json:"release_date"`
 	Genre       string       `json:"genre"`
-	MovieGenre  []MovieGenre `json:"-"` // ignore that json field
+	MovieGenre  []MovieGenre `json:"genres"`
 	Poster      string       `json:"poster"`
 	Plot        string       `json:"plot"`
 	Rating      string       `json:"rating"`
@@ -48,16 +48,16 @@ type Movie struct {
 
 type Genre struct {
 	ID        int       `json:"id"`
-	CreatedAt time.Time `json:"created_at"`
-	UpdatedAt time.Time `json:"updated_at"`
+	CreatedAt time.Time `json:"-"`
+	UpdatedAt time.Time `json:"-"`
 	GenreName string    `json:"genre_name"`
 }
 
 type MovieGenre struct {
-	ID        int       `json:"id"`
-	CreatedAt time.Time `json:"created_at"`
-	UpdatedAt time.Time `json:"updated_at"`
-	MovieID   int       `json:"movie_id"`
-	GenreID   int       `json:"genre_id"`
+	ID        int       `json:"-"`
+	CreatedAt time.Time `json:"-"`
+	UpdatedAt time.Time `json:"-"`
+	MovieID   int       `json:"-"`
+	GenreID   int       `json:"-"`
 	Genre     Genre     `json:"genre"`
 }
